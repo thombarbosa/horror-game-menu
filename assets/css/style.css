@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative; /* Necessário para o pseudo-elemento */
+    background-image: url(../img/bg-menu.png);
+    background-size: cover;
+    height: 100vh; /* Garante que o body tenha altura total da viewport */
+}
+
+body::before {
+    content: ''; /* Cria um pseudo-elemento vazio */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1; /* Coloca a camada acima da imagem de fundo, mas abaixo do conteúdo */
+}
+
+.menu {
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 15%;
+    transform: translateY(-50%); /* Ajusta para o centro */
+    z-index: 10; /* Garante que o menu fique acima da camada escura */
+    width: max-content;
+}
+
+.menu a {
+    display: block;
+    font-family: "League Gothic", sans-serif;
+    font-size: 5vmin;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgb(213, 213, 213);
+    padding: .5rem 0;
+    transform: scale(.95);
+    opacity: .30;
+    transition: scale 650ms linear, opacity 250ms linear;
+}
+
+.menu a:first-of-type {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.menu a:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.menu:hover a:not(:hover) {
+    transform: scale(.95);
+    opacity: .30;
+}
